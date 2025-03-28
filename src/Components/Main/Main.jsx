@@ -66,13 +66,12 @@ const Main = (props) => {
             </h3>
           </div>
         </div>
-        <button className="profile__button">
+        <button className="profile__button" onClick={onClickAddCard}>
           <img
             src={buttonAdd}
             alt="Vector del boton"
             className="profile__button-img"
             id="openPopupCards"
-            onClick={onClickAddCard}
           />
         </button>
       </section>
