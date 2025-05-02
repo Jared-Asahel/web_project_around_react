@@ -2,7 +2,7 @@
 import { useState, useContext } from "react";
 
 // Importación del contexto donde está la info del usuario actual
-import CurrentUserContext from "../../../../contexts/CurrentUserContext";
+import CurrentUserContext from "../../../../../contexts/CurrentUserContext";
 
 // Componente EditProfile para editar el perfil del usuario
 const EditProfile = ({ onClose }) => {

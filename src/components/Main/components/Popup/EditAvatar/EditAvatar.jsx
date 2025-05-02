@@ -2,7 +2,7 @@
 import { useContext, useRef } from "react";
 
 // Importación del contexto donde está la función para actualizar el avatar
-import CurrentUserContext from "../../../../contexts/CurrentUserContext";
+import CurrentUserContext from "../../../../../contexts/CurrentUserContext";
 
 // Componente EditAvatar para cambiar la foto de perfil
 const EditAvatar = ({ onClose }) => {

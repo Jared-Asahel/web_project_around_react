@@ -1,5 +1,5 @@
-import RemoveCard from "../../imagenes/RemoveCard.png";
-import ImagePopup from "../ImagePopup/ImagePopup";
+import RemoveCard from "../../../../imagenes/RemoveCard.png";
+import ImagePopup from "../Popup/ImagePopup/ImagePopup";
 
 const Card = (props) => {
   const { card, onClick, onCardLike, onCardDelete } = props;

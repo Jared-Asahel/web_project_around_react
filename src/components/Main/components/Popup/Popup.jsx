@@ -1,4 +1,4 @@
-import buttonClose from "../../imagenes/CloseIcon.png";
+import buttonClose from "../../../../imagenes/CloseIcon.png";
 
 export default function Popup(props) {
   const { title, children, onClose } = props;

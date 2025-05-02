@@ -1,7 +1,7 @@
 // Importación de imágenes y componentes
 import buttonPerfil from "../../imagenes/Vector.svg";
 import buttonAdd from "../../imagenes/VectorAddCard.png";
-import Card from "../Card/Card";
+import Card from "./components/Card/Card";
 import { useContext } from "react";
 
 // Importación del contexto del usuario

@@ -2,10 +2,10 @@
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
-import Popup from "./Main/Popup";
-import NewCard from "./Main/Popup/NewCard/NewCard";
-import EditProfile from "./Main/Popup/EditProfile/EditProfile";
-import EditAvatar from "./Main/Popup/EditAvatar/EditAvatar";
+import Popup from "./Main/components/Popup/Popup";
+import NewCard from "./Main/components/Popup/NewCard/NewCard";
+import EditProfile from "./Main/components/Popup/EditProfile/EditProfile";
+import EditAvatar from "./Main/components/Popup/EditAvatar/EditAvatar";
 
 // Importación de hooks y utilidades
 import { useState, useEffect } from "react";
