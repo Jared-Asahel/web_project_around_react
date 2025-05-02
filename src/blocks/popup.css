@@ -105,9 +105,8 @@
 }
 
 .popup__image {
-  max-width: 133px;
   width: 100%;
-  max-width: 240px;
+  max-width: 340px;
   height: 100%;
 }
 

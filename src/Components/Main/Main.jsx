@@ -1,42 +1,37 @@
-import perfil from "../../imagenes/image.jpg";
+// Importación de imágenes y componentes
 import buttonPerfil from "../../imagenes/Vector.svg";
 import buttonAdd from "../../imagenes/VectorAddCard.png";
 import Card from "../Card/Card";
+import { useContext } from "react";
 
-const cards = [
-  {
-    isLiked: true,
-    _id: "5d1f0611d321eb4bdcd707dd",
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-    owner: "5d1f0611d321eb4bdcd707dd",
-    createdAt: "2019-07-05T08:10:57.741Z",
-  },
-  {
-    isLiked: false,
-    _id: "5d1f064ed321eb4bdcd707de",
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-    owner: "5d1f0611d321eb4bdcd707dd",
-    createdAt: "2019-07-05T08:11:58.324Z",
-  },
-];
+// Importación del contexto del usuario
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
+// Componente Main que muestra el perfil y las tarjetas
 const Main = (props) => {
+  // Obtener la información del usuario desde el contexto
+  const { currentUser } = useContext(CurrentUserContext);
+
+  // Desestructuración de las props recibidas
   const {
     onClickEditProfile,
     onClickEditAvatar,
     onClickAddCard,
     onClickCardImage,
+    cards,
+    onCardLike,
+    onCardDelete,
   } = props;
 
   return (
     <main className="content">
+      {/* Sección del perfil */}
       <section className="profile">
         <div className="profile__content">
+          {/* Imagen de perfil y botón para editar avatar */}
           <div className="profile__image-content">
             <img
-              src={perfil}
+              src={currentUser.avatar}
               alt="Foto de perfil"
               className="profile__image"
               id="perfilImage"
@@ -48,11 +43,16 @@ const Main = (props) => {
               className="profile__image-pencil"
             />
           </div>
+
+          {/* Información del perfil */}
           <div className="profile__info">
             <div className="profile__info-2">
+              {/* Nombre del usuario */}
               <h2 className="profile__info-2 profile__name" id="name1">
-                Jacques Cousteau
+                {currentUser.name}
               </h2>
+
+              {/* Botón para editar perfil */}
               <img
                 src={buttonPerfil}
                 alt="Boton cerrar popup"
@@ -61,11 +61,15 @@ const Main = (props) => {
                 onClick={onClickEditProfile}
               />
             </div>
+
+            {/* Descripción (about) del usuario */}
             <h3 className="profile__name-2" id="name2">
-              Explorador
+              {currentUser.about}
             </h3>
           </div>
         </div>
+
+        {/* Botón para añadir nueva tarjeta */}
         <button className="profile__button" onClick={onClickAddCard}>
           <img
             src={buttonAdd}
@@ -75,10 +79,18 @@ const Main = (props) => {
           />
         </button>
       </section>
+
+      {/* Sección de tarjetas */}
       <section className="elements" id="elements">
-        {/* Retorna automaticamente con los () */}
+        {/* Renderizar las tarjetas usando map */}
         {cards.map((card) => (
-          <Card key={card._id} card={card} onClick={onClickCardImage} />
+          <Card
+            key={card._id}
+            card={card}
+            onClick={onClickCardImage}
+            onCardLike={onCardLike}
+            onCardDelete={onCardDelete}
+          />
         ))}
       </section>
     </main>

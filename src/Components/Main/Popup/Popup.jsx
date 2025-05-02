@@ -11,7 +11,7 @@ export default function Popup(props) {
           src={buttonClose}
           alt="Boton cerrar popup"
           id="closePopupCards"
-          class="popup__button"
+          className="popup__button"
           onClick={onClose}
         />
         {title && <h3 className="popup__title">{title}</h3>}
