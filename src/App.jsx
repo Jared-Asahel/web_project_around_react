@@ -1,11 +1,11 @@
 // Importación de componentes principales
-import Header from "./component/Header/Header";
-import Main from "./component/Main/Main";
-import Footer from "./component/Footer/Footer";
-import Popup from "./component/Main/Popup/Popup";
-import NewCard from "./component/Main/Popup/NewCard/NewCard";
-import EditProfile from "./component/Main/Popup/EditProfile/EditProfile";
-import EditAvatar from "./component/Main/Popup/EditAvatar/EditAvatar";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
+import Popup from "./components/Main/Popup/Popup";
+import NewCard from "./components/Main/Popup/NewCard/NewCard";
+import EditProfile from "./components/Main/Popup/EditProfile/EditProfile";
+import EditAvatar from "./components/Main/Popup/EditAvatar/EditAvatar";
 
 // Importación de hooks y utilidades
 import { useState, useEffect } from "react";
