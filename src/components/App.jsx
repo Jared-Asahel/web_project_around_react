@@ -2,28 +2,22 @@
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
-import Popup from "./Main/components/Popup/Popup";
+/* import Popup from "./Main/components/Popup/Popup";
 import NewCard from "./Main/components/Popup/NewCard/NewCard";
 import EditProfile from "./Main/components/Popup/EditProfile/EditProfile";
 import EditAvatar from "./Main/components/Popup/EditAvatar/EditAvatar";
-
+ */
 // Importación de hooks y utilidades
 import { useState, useEffect } from "react";
 import { api } from "../utils/api";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function App() {
-  // Estado para manejar el popup activo
+  /* /*   // Estado para manejar el popup activo
   const [popup, setPopup] = useState(null);
 
   // Función para cerrar cualquier popup
   const closePopup = () => setPopup(null);
-
-  // Estado para guardar la información del usuario
-  const [currentUser, setCurrentUser] = useState({});
-
-  // Estado para guardar las tarjetas
-  const [cards, setCards] = useState([]);
 
   // Configuración del popup para editar avatar
   const popupEditAvatar = {
@@ -41,7 +35,13 @@ function App() {
   const popupAddCard = {
     title: "Nuevo Lugar",
     children: <NewCard onClose={closePopup} onAddCard={handleAddCard} />,
-  };
+  }; */
+
+  // Estado para guardar la información del usuario
+  const [currentUser, setCurrentUser] = useState({});
+
+  // Estado para guardar las tarjetas
+  const [cards, setCards] = useState([]);
 
   // useEffect para obtener la información del usuario al cargar la app
   useEffect(() => {
@@ -73,7 +73,6 @@ function App() {
       .updateUserInformation(data)
       .then((newData) => {
         setCurrentUser(newData);
-        closePopup();
       })
       .catch((err) => console.error(err));
   };
@@ -122,7 +121,6 @@ function App() {
       .createCard(data)
       .then((newData) => {
         setCards([newData, ...cards]);
-        closePopup();
       })
       .catch((err) => console.error(err));
   }
@@ -141,21 +139,24 @@ function App() {
           cards={cards}
           onCardLike={handleCardLike}
           onCardDelete={handleCardDelete}
-          onClickEditProfile={() => setPopup(popupEditPerfil)}
+          /* onClickEditProfile={() => setPopup(popupEditPerfil)}
           onClickEditAvatar={() => setPopup(popupEditAvatar)}
           onClickAddCard={() => setPopup(popupAddCard)}
-          onClickCardImage={(popupImage) => setPopup(popupImage)}
+          onClickCardImage={(popupImage) => setPopup(popupImage)} */
+          onAddCard={handleAddCard}
+          onUpdateUser={handleUpdateUser}
+          onUpdateAvatar={handleUpdateAvatar}
         />
 
         {/* Pie de página */}
         <Footer />
 
         {/* Popup dinámico */}
-        {popup && (
+        {/* {popup && (
           <Popup onClose={() => setPopup(null)} title={popup.title}>
             {popup.children}
           </Popup>
-        )}
+        )} */}
       </div>
     </CurrentUserContext.Provider>
   );

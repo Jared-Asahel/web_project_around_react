@@ -2,7 +2,12 @@
 import buttonPerfil from "../../imagenes/Vector.svg";
 import buttonAdd from "../../imagenes/VectorAddCard.png";
 import Card from "./components/Card/Card";
-import { useContext } from "react";
+import Popup from "./components/Popup/Popup";
+import NewCard from "./components/Popup/NewCard/NewCard";
+import EditProfile from "./components/Popup/EditProfile/EditProfile";
+import EditAvatar from "./components/Popup/EditAvatar/EditAvatar";
+
+import { useContext, useState } from "react";
 
 // Importación del contexto del usuario
 import CurrentUserContext from "../../contexts/CurrentUserContext";
@@ -14,14 +19,39 @@ const Main = (props) => {
 
   // Desestructuración de las props recibidas
   const {
-    onClickEditProfile,
-    onClickEditAvatar,
-    onClickAddCard,
-    onClickCardImage,
     cards,
     onCardLike,
     onCardDelete,
+    onAddCard, // Nueva prop para añadir tarjeta
+    onUpdateUser, // Nueva prop para actualizar perfil
+    onUpdateAvatar, // Nueva prop para actualizar avatar
   } = props;
+
+  // Estado para manejar el popup activo
+  const [popup, setPopup] = useState(null);
+
+  // Función para cerrar cualquier popup
+  const closePopup = () => setPopup(null);
+
+  // Configuración del popup para editar avatar
+  const popupEditAvatar = {
+    title: "Cambiar foto de perfil",
+    children: (
+      <EditAvatar onClose={closePopup} onUpdateAvatar={onUpdateAvatar} />
+    ),
+  };
+
+  // Configuración del popup para editar perfil
+  const popupEditPerfil = {
+    title: "Editar Perfil",
+    children: <EditProfile onClose={closePopup} onUpdateUser={onUpdateUser} />,
+  };
+
+  // Configuración del popup para añadir una nueva tarjeta
+  const popupAddCard = {
+    title: "Nuevo Lugar",
+    children: <NewCard onClose={closePopup} onAddCard={onAddCard} />,
+  };
 
   return (
     <main className="content">
@@ -38,7 +68,7 @@ const Main = (props) => {
             />
             <img
               src={buttonPerfil}
-              onClick={onClickEditAvatar}
+              onClick={() => setPopup(popupEditAvatar)}
               alt=""
               className="profile__image-pencil"
             />
@@ -58,7 +88,9 @@ const Main = (props) => {
                 alt="Boton cerrar popup"
                 className="profile__button-2"
                 id="openpopup"
-                onClick={onClickEditProfile}
+                onClick={() => {
+                  setPopup(popupEditPerfil);
+                }}
               />
             </div>
 
@@ -70,7 +102,12 @@ const Main = (props) => {
         </div>
 
         {/* Botón para añadir nueva tarjeta */}
-        <button className="profile__button" onClick={onClickAddCard}>
+        <button
+          className="profile__button"
+          onClick={() => {
+            setPopup(popupAddCard);
+          }}
+        >
           <img
             src={buttonAdd}
             alt="Vector del boton"
@@ -87,12 +124,20 @@ const Main = (props) => {
           <Card
             key={card._id}
             card={card}
-            onClick={onClickCardImage}
+            onClick={(popupImage) => {
+              setPopup(popupImage);
+            }}
             onCardLike={onCardLike}
             onCardDelete={onCardDelete}
           />
         ))}
       </section>
+      {/* Popup dinámico */}
+      {popup && (
+        <Popup onClose={() => setPopup(null)} title={popup.title}>
+          {popup.children}
+        </Popup>
+      )}
     </main>
   );
 };
