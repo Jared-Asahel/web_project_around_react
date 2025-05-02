@@ -1,16 +1,16 @@
 // Importación de componentes principales
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/Footer";
-import Popup from "./components/Main/Popup/Popup";
-import NewCard from "./components/Main/Popup/NewCard/NewCard";
-import EditProfile from "./components/Main/Popup/EditProfile/EditProfile";
-import EditAvatar from "./components/Main/Popup/EditAvatar/EditAvatar";
+import Header from "./Header/Header";
+import Main from "./Main/Main";
+import Footer from "./Footer/Footer";
+import Popup from "./Main/Popup/Popup";
+import NewCard from "./Main/Popup/NewCard/NewCard";
+import EditProfile from "./Main/Popup/EditProfile/EditProfile";
+import EditAvatar from "./Main/Popup/EditAvatar/EditAvatar";
 
 // Importación de hooks y utilidades
 import { useState, useEffect } from "react";
-import { api } from "./utils/api";
-import CurrentUserContext from "./contexts/CurrentUserContext";
+import { api } from "../utils/api";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function App() {
   // Estado para manejar el popup activo
