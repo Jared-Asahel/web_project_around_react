@@ -17,19 +17,19 @@ Una aplicación web interactiva que permite explorar los estados de EE. UU., dis
 
 git clone https://github.com/Jared-Asahel/web_project_around_react.git
 
-    2.	Navega al directorio del proyecto:
+2.	Navega al directorio del proyecto:
 
 cd web_project_around_react
 
-    3.	Instala las dependencias:
+3.	Instala las dependencias:
 
 npm install
 
-    4.	Inicia el servidor de desarrollo:
+4.	Inicia el servidor de desarrollo:
 
 npm run dev
 
-    5.	Abre tu navegador y visita:
+5.	Abre tu navegador y visita:
 
 http://localhost:5173
 
