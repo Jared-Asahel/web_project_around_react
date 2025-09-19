@@ -13,30 +13,6 @@ import { api } from "../utils/api";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function App() {
-  /* /*   // Estado para manejar el popup activo
-  const [popup, setPopup] = useState(null);
-
-  // Función para cerrar cualquier popup
-  const closePopup = () => setPopup(null);
-
-  // Configuración del popup para editar avatar
-  const popupEditAvatar = {
-    title: "Cambiar foto de perfil",
-    children: <EditAvatar onClose={closePopup} />,
-  };
-
-  // Configuración del popup para editar perfil
-  const popupEditPerfil = {
-    title: "Editar Perfil",
-    children: <EditProfile onClose={closePopup} />,
-  };
-
-  // Configuración del popup para añadir una nueva tarjeta
-  const popupAddCard = {
-    title: "Nuevo Lugar",
-    children: <NewCard onClose={closePopup} onAddCard={handleAddCard} />,
-  }; */
-
   // Estado para guardar la información del usuario
   const [currentUser, setCurrentUser] = useState({});
 
